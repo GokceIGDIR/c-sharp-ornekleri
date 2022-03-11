@@ -1,0 +1,43 @@
+static void Main(string[] args)
+        {
+            int[] a = new int[6];
+            int kln, kova;
+            Random sys = new Random();
+            Console.Write("Kaç kolon oynamak istersiniz :");
+            kln = Convert.ToInt16(Console.ReadLine());
+            if (kln >= 1 && kln <= 8)
+                for (int k = 1; k <= kln; k++)
+                {
+                    for (int i = 0; i < 6; i++)
+                    {
+                        a[i] = sys.Next(1, 50);
+                        if (i > 0)
+                            for (int j = 0; j < i; j++)
+                            {
+                                if (a[i] == a[j])
+                                    i--;
+                            }
+                    }
+                    for (int i = 0; i < 5; i++)
+                    {
+                        for (int j = i + 1; j < 6; j++)
+                        {
+                            if (a[i] > a[j])
+                            {
+                                kova = a[i];
+                                a[i] = a[j];
+                                a[j] = kova;
+
+                            }
+                        }
+                    }
+                    Console.WriteLine("{0}. kolon ", k);
+                    for (int i = 0; i < 6; i++)
+                        Console.Write(" {0,2} ", a[i]);
+                    Console.WriteLine(" ");
+                }
+            else
+                Console.WriteLine("En az 1 en fazla 8 kolon oynabilirsiniz!");
+
+            Console.ReadKey();
+        }
