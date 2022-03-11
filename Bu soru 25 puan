@@ -1,0 +1,87 @@
+//dortgen adında, dört farklı bilgi parçası içeren bir sınıf yaratın kenar1 (int tipinde), kenar2 (int tipinde) , kenar3 (int tipinde) ve kenar4 (int tipinde). 
+Bilgiler özel (private) erişimli olmalı.
+Sınıfın, bu dört veri üyesine ilk değerler atayan ve verilen değerlerin doğru olduğunu varsayan (geometrik kuralların kontrollerini yapmayan),
+üstüne yüklenmiş yapıcıları (constructor) olmalı. Parametresi olmayan yapıcı bütün kenar uzunluklarına 0 atamalı. 
+Bir parametresi olan yapıcı, bütün kenar uzunluklarına o parametre değerini atamalı (eşkenar dörtgen yaratmalı).
+İki parametresi olan yapıcı, kenar1 ve kenar3’e ilk parametre değerini, kenar2 ve kenar4’e ikinci parametre değerini atamalı (paralelkenar yaratmalı). 
+Üç parametreli yapıcı, 3. parametrenin değerini kullanmayarak ilk iki parametrenin değeriyle iki parametreli yapıcının davrandığı gibi davranmalı.
+Dört parametreli yapıcı, bu parametrelerin değerlerini sırasıyla kenar1, kenar2, kenar3 ve kenar4’e atamalı (çeşitkenar dörtgen yaratmalı).
+Ayrıca, sınıf cevreHesapla adında ve dörtgenin çevresini hesaplayıp dönen bir metot içermeli. //
+class dortgen
+    {
+       private int kenar1;
+       private int kenar2;
+       private int kenar3;
+       private int kenar4;
+        
+
+        public dortgen() //parametresi olmayan yapıcı
+        {
+            kenar1 = 0;
+            kenar2 = 0;
+            kenar3 = 0;
+            kenar4 = 0;
+            CevreHesapla(kenar1, kenar2, kenar3, kenar4);
+            Console.WriteLine("{0}", (CevreHesapla(kenar1, kenar2, kenar3, kenar4)));
+
+        }
+        public dortgen(int a)// bir parametreli  olan yapıcı
+        {
+            kenar1 = a;
+            kenar2 = a;
+            kenar3 = a;
+            kenar4 = a;
+            CevreHesapla(kenar1, kenar2, kenar3, kenar4);
+            Console.WriteLine("{0}", (CevreHesapla(kenar1, kenar2, kenar3, kenar4)));
+
+        }
+        public dortgen(int a,int b)// iki parametresi olan yapıcı
+        {
+            kenar1 = kenar3 = a;
+            kenar2 = kenar4 = b;
+            CevreHesapla(kenar1, kenar2, kenar3, kenar4);
+            Console.WriteLine("{0}", (CevreHesapla(kenar1, kenar2, kenar3, kenar4)));
+
+        }
+        public dortgen(int a, int b, int c)//üç parametresi olan yapıcı
+        {
+            kenar1 = kenar3 = a;
+            kenar2 = kenar4 = b;
+            CevreHesapla(kenar1, kenar2, kenar3, kenar4);
+            Console.WriteLine("{0}", (CevreHesapla(kenar1, kenar2, kenar3, kenar4)));
+
+        }
+        public dortgen(int a,int b,int c, int d)//dört parametresi olan yapıcı
+        {
+            kenar1 = a;
+            kenar2 = b;
+            kenar3 = c;
+            kenar4 = d;
+            CevreHesapla(kenar1, kenar2, kenar3, kenar4);
+            Console.WriteLine("{0}", (CevreHesapla(kenar1, kenar2, kenar3, kenar4)));
+
+
+        }
+
+
+        public int CevreHesapla(int a, int b, int c, int d) //dörtgenlerin çevresini hesaplayan method
+        {
+            return (a + b + c + d);
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            dortgen s1 = new dortgen();
+            dortgen s2 = new dortgen(2);
+            dortgen s3 = new dortgen(4, 6);
+            dortgen s4 = new dortgen(4, 6,7);
+            dortgen s5 = new dortgen(4, 6, 8, 10);
+            //Console.WriteLine("{0}", s1.CevreHesapla());
+            Console.ReadKey();
+
+            
+        }
+    }
