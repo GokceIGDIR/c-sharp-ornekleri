@@ -1,0 +1,22 @@
+//Kullanıcıdan, kullanıcının girdisi “bitti” dizgisi olana kadar sırayla dizgiler okuyan ve okuduğu dizgilerdeki (son okuduğu  “bitti” dizgisi hariç) 
+ortalama karakter sayısını çıktılayan tam bir C# programı
+
+static void Main(string[] args)
+        {
+            List<string> girdiDizisi = new List<string>();
+            double toplamHarf = 0;
+            double ortalamaHarf = 0;
+            for (int i = 0; true; i++)
+            {
+                string girdi = Console.ReadLine();
+                if (girdi == "bitti")
+                {
+                    break;
+                }
+                girdiDizisi.Add(girdi);
+                toplamHarf += girdiDizisi[i].Length;
+            }
+            ortalamaHarf = toplamHarf / girdiDizisi.Count;
+            Console.WriteLine(ortalamaHarf);
+            Console.ReadLine();
+        }
