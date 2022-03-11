@@ -1,0 +1,18 @@
+static void Main(string[] args)
+        {
+            Console.Write("Fibonacci dizisi için eleman sayısı giriniz:");
+            int fibo = Convert.ToInt32(Console.ReadLine());
+
+            int sayi1 = 0;
+            int sayi2 = 1;
+
+            Console.Write(sayi1 + " " + sayi2 + " ");
+            for (int i = 3; i <= fibo; i++ )
+            {
+                int sayi3 = sayi1 + sayi2;
+                Console.Write(sayi3 + " ");
+                sayi1 = sayi2;
+                sayi2 = sayi3;
+            }
+            Console.ReadKey();
+        }
