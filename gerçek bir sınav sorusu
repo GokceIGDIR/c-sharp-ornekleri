@@ -1,0 +1,37 @@
+//	Kullanıcıdan iki dizgi alan ve bu dizgilerden ilkinin karakterlerinin ilk yarısını,
+ikinci dizginin karakterlerinin ikinci yarısıyla art arda bağlayarak ekrana yazdıran bir C# programı //
+
+
+
+static void Main(string[] args)
+        {
+            string d1, d2;
+            string birlesmis;
+
+            Console.Write("metni gir:");
+            d1 = Console.ReadLine();
+            if (d1.Length % 2 == 0)
+            {
+                d1 = d1.Substring(0, d1.Length / 2);
+            }
+            else
+            {
+                d1 = d1.Substring(0, (d1.Length / 2) + 1);
+            }
+        
+            Console.Write("ikinci metni gir:");
+            d2 = Console.ReadLine();
+            
+            
+                   d2 = d2.Substring(d2.Length / 2);   
+        
+            Console.WriteLine("{0}", d1);
+            Console.WriteLine("{0}", d2);
+
+            birlesmis = string.Concat(d1, d2);
+            Console.WriteLine("{0}", birlesmis);
+            
+
+            Console.ReadKey();
+        }
+    }
