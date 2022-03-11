@@ -1,0 +1,9 @@
+static void Main(string[] args)
+        {
+            int tus;
+            Console.WriteLine("bir tuşa basın");
+            tus = Console.Read();
+            Console.WriteLine("basılan tusun ascii karsılı = {0}", tus);
+            Console.ReadKey();
+        
+        }
