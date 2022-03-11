@@ -1,0 +1,32 @@
+//girilen dizideki tek sayıları bulma//
+
+static void Main(string[] args)
+        {
+            Ornek ornek = new Ornek();
+
+            List<int> test = ornek.tekler(1, 3, 7, 20, 60, 111, 14, 65, 90, 125);
+            foreach (int i in test)
+            {
+                Console.Write(i + "-");
+            }
+        }
+
+        class Ornek
+        {
+            List<int> teklerDizi = new List<int>();
+            public List<int> tekler(params int[] dizi)
+            {
+                foreach (int i in dizi)
+                {
+                    if ((i % 2) != 0)
+                    {
+                        teklerDizi.Add(i);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                return teklerDizi;
+            }
+        }
