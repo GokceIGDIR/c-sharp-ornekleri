@@ -1,0 +1,88 @@
+//Girilen art takı ifadeyi iç takı ifadeye dönüştürme (Sınıf ve metodlar yardımıyla)
+//örnek çalışma şekli
+//girdi : ab+     çıktı:(a+b)
+
+class Program
+    {
+        static int sinir = 100;
+        public class Stack
+        {
+            String[] dizi;
+            int son = 0;
+            public Stack()
+            {
+                dizi = new String[sinir];
+            }
+            public void Push(String veri)
+            {
+                if (son == sinir - 1)
+                {
+                    Console.WriteLine("Dizi dolu");
+                }
+                dizi[son] = veri;
+                son++;
+            }
+            public String Pop()
+            {
+                if (son > 0)
+                    return dizi[--son];
+                else
+                    return "Stack Boş";
+            }
+            public string soneleman()
+            {
+                return dizi[son  - 1];
+            }
+            public int ElemanSayisi()
+            {
+                return son;
+            }
+
+        }
+        static String infix(String girdi)
+        {
+            Stack dizi = new Stack();
+
+            for (int i = 0; i < girdi.Length; i++)
+            {
+                if (Operandolcer(girdi[i]))
+                {
+                    dizi.Push(girdi[i] + "");
+                }
+                else
+                {
+                    String operant1 = dizi.soneleman().ToString();
+                    dizi.Pop();
+                    String operant2 = dizi.soneleman().ToString();
+                    dizi.Pop();
+                    dizi.Push("(" + operant2 + girdi[i] + operant1 + ")");
+                }
+            }
+            if (dizi.ElemanSayisi() != 1)
+            {
+                return "Hatalı giriş";
+            }
+            return dizi.soneleman().ToString();
+        }
+        static bool Operandolcer(char karakter)
+        {
+            if ((karakter >= 'a' && karakter <= 'z') || (karakter >= 'A' && karakter <= 'Z'))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
+        public static void Main(String[] args)
+        {
+           
+            Console.Write("Arttakı ifade girin: ");
+            String girdi = Console.ReadLine();
+            Console.Write("İçtakı biçimi:");
+            Console.WriteLine(infix(girdi));
+            Console.ReadKey();
+        }
+    }
