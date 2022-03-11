@@ -1,0 +1,33 @@
+//Değişken sayıda int tipinde parametre alabilen ve parametrelerinin en büyüğü ile en küçüğünün ortalamasını double olarak dönen minmaxort adında bir fonksiyon  //
+
+
+public static double minmaxort(params int[] sayilar)
+        {
+            int i;
+            int min = sayilar[0];
+            int max = sayilar[0];
+            double ort;
+            for (i = 1; i < sayilar.Length; i++)
+            {
+                if (sayilar[i] < min)
+                    min = sayilar[i];
+                if (sayilar[i] > max)
+                    max = sayilar[i];
+            }
+
+            ort = Convert.ToDouble(min + max) / 2;
+            return ort;
+
+
+        }
+        class Program
+        {
+
+            static void Main(string[] args)
+            {
+
+                double sonuc = minmaxort(54, 63, 6, 7, 12, 34, 2, 18, 23);
+            Console.WriteLine("{0}", sonuc);
+            }
+        }
+    }
