@@ -1,0 +1,24 @@
+// kullanıcı tarafından sadece dik kenarları girilen ücgenin alan ve çevresini bulma
+
+static void Main(string[] args)
+        {
+            int k1, k2, h, cev, alan;
+            Console.Write("birinci kenar uzunlugu:");
+            k1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("ikinci kenar uzunlugu:");
+            k2 = Convert.ToInt32(Console.ReadLine());
+
+            h = (Int32)Math.Sqrt(k1 * k1 + k2 * k2);
+            alan = (k1 * k2) / 2;
+            cev = h + k1 + k2;
+
+            Console.WriteLine("ucegenin alanı:" + alan);
+
+            Console.WriteLine("ucgenin cevresi:" + cev);
+            Console.WriteLine("ucgenin yuksekligi:" + h);
+
+
+            Console.ReadKey();
+
+        }
+    }
